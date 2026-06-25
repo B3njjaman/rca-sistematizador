@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rca-sistematizador"
+version = "0.1.0"
+description = "Sistematiza una RCA (PDF -> HTML -> matriz de exigencias) usando modelos locales con Ollama"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "RCA AMSA" }]
+dependencies = [
+    "pymupdf>=1.24",        # PDF -> HTML/texto (liviano, sin GPU)
+    "pydantic>=2.6",        # esquema de datos + JSON Schema para Ollama
+    "pyyaml>=6.0",          # config y taxonomia
+    "typer>=0.12",          # CLI
+    "rich>=13.7",           # salida en consola
+    "pandas>=2.1",          # matriz
+    "openpyxl>=3.1",        # export Excel
+    "ollama>=0.3.3",        # cliente LLM local
+    "beautifulsoup4>=4.12", # limpieza/lectura HTML
+]
+
+[project.optional-dependencies]
+ui = ["streamlit>=1.36"]      # fase posterior: UI de revisión
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+rca = "rca.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,35 @@
+# =============================================================
+#  Configuración del sistematizador de RCA
+# =============================================================
+
+# --- Metadata del documento que se está procesando ---
+documento:
+  compania: "Minera Centinela"
+  proyecto: "Actualización Proyecto Desarrollo Minera Centinela"
+  instrumento: "RCA N°0058/2019"
+  fuente_documento: "RCA 058/2019 - Comisión de Evaluación Región de Antofagasta (SEA)"
+  id_prefijo: "RCA058-EX"   # los IDs quedan como RCA058-EX-001, -002, ...
+
+# --- Motor LLM local (Ollama) ---
+ollama:
+  host: "http://localhost:11434"
+  modelo: "qwen2.5:3b-instruct"   # CPU-friendly. Alternativas: llama3.2:3b, qwen2.5:7b-instruct (16GB+)
+  temperatura: 0
+  seed: 42
+  num_ctx: 8192
+
+# --- Conversión PDF -> HTML ---
+ingesta:
+  backend: "pymupdf"   # pymupdf (liviano) | docling (mayor fidelidad, más pesado)
+  ocr: false           # MVP: sin OCR. Si el PDF es escaneado, activarlo en fase 2.
+
+# --- Segmentación del documento ---
+parsing:
+  max_chars_chunk: 4000   # tamaño de bloque que se envía al LLM
+
+# --- Rutas (relativas a la raíz del repo) ---
+paths:
+  raw: "data/raw"
+  html: "data/html"
+  output: "output"
+  cache: ".cache"

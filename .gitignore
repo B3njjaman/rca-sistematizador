@@ -1,0 +1,21 @@
+# Entornos
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+
+# Datos y salidas (se mantienen locales, no se versionan)
+data/raw/*
+!data/raw/.gitkeep
+data/html/*
+!data/html/.gitkeep
+output/*
+!output/.gitkeep
+.cache/
+
+# Entorno local
+.env

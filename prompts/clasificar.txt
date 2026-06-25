@@ -1,0 +1,15 @@
+Eres un analista ambiental. Clasifica UNA exigencia ambiental de una RCA chilena.
+
+Asigna los campos usando PREFERENTEMENTE estos vocabularios (si ninguno aplica, usa el más cercano):
+
+- Componentes ambientales: {componentes}
+- Elementos ambientales: {elementos}
+- Áreas / obras del proyecto: {areas}
+
+Instrucciones:
+1. "componente_1" es el componente ambiental principal afectado (obligatorio).
+2. Usa "componente_2"/"elemento_2" y "componente_3"/"elemento_3" SOLO si la exigencia toca más de un componente; si no, déjalos en null.
+3. "area_1" + "obra_actividad_1" indican dónde se aplica (obra, instalación o actividad). Usa area_2/area_3 solo si aplica a varias; si no, null.
+4. "riesgo_inherente": estima el riesgo de incumplimiento (Alto/Medio/Bajo). Si no hay base, usa "No determinado".
+
+Responde SOLO con el JSON pedido por el esquema, sin texto adicional.

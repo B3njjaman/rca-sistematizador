@@ -1,0 +1,20 @@
+# Sugerencias de responsable organizacional según el componente ambiental.
+# El sistema SOLO sugiere; el equipo de cumplimiento confirma/edita.
+
+por_componente:
+  "Medio Físico":
+    gerencia: "Gerencia de Sustentabilidad y Asuntos Externos"
+    superintendencia: "Superintendencia de Medio Ambiente"
+  "Medio Biótico":
+    gerencia: "Gerencia de Sustentabilidad y Asuntos Externos"
+    superintendencia: "Superintendencia de Medio Ambiente"
+  "Medio Humano":
+    gerencia: "Gerencia de Asuntos Comunitarios"
+    superintendencia: "Superintendencia de Relacionamiento Comunitario"
+  "Medio Construido / Infraestructura":
+    gerencia: "Gerencia de Operaciones"
+    superintendencia: "Superintendencia de Medio Ambiente"
+
+default:
+  gerencia: ""
+  superintendencia: "Superintendencia de Medio Ambiente"

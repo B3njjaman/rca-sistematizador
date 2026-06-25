@@ -1,0 +1,37 @@
+# Vocabulario controlado para la clasificación de exigencias.
+# Editable: ajusta estas listas a la realidad de tu RCA/operación.
+
+componentes:
+  - "Medio Físico"
+  - "Medio Biótico"
+  - "Medio Humano"
+  - "Medio Construido / Infraestructura"
+
+elementos:
+  - "Calidad del aire"
+  - "Ruido y vibraciones"
+  - "Agua superficial"
+  - "Agua subterránea / hidrogeología"
+  - "Suelo"
+  - "Flora y vegetación"
+  - "Fauna terrestre"
+  - "Avifauna"
+  - "Ecosistemas acuáticos / humedales"
+  - "Paisaje"
+  - "Patrimonio cultural y arqueológico"
+  - "Medio humano y socioeconomía"
+  - "Vialidad y transporte"
+  - "Manejo de residuos"
+  - "Glaciares / criósfera"
+  - "No aplica"
+
+# Áreas / obras del proyecto (tomadas de la descripción del proyecto)
+areas:
+  - "Mina - Planta"
+  - "Concentraducto / Ductos"
+  - "Muelle Esperanza"
+  - "Botadero / Depósito de estériles"
+  - "Depósito de relaves"
+  - "Caminos y accesos"
+  - "Suministro de agua de mar"
+  - "Transversal / Todo el proyecto"
