@@ -13,10 +13,11 @@ documento:
 # --- Motor LLM local (Ollama) ---
 ollama:
   host: "http://localhost:11434"
-  modelo: "qwen2.5:3b-instruct"   # CPU-friendly. Alternativas: llama3.2:3b, qwen2.5:7b-instruct (16GB+)
+  modelo: "qwen2.5:3b-instruct"   # CPU-friendly. Alternativas: qwen2.5:1.5b (PC más justo), qwen2.5:7b-instruct (16GB+)
   temperatura: 0
   seed: 42
-  num_ctx: 8192
+  num_ctx: 4096      # en CPU bájalo a 2048 si te quedas sin RAM
+  timeout: 600       # segundos; en CPU la 1a inferencia tarda
 
 # --- Conversión PDF -> HTML ---
 ingesta:
@@ -25,7 +26,7 @@ ingesta:
 
 # --- Segmentación del documento ---
 parsing:
-  max_chars_chunk: 4000   # tamaño de bloque que se envía al LLM
+  max_chars_chunk: 2500   # tamaño de bloque que se envía al LLM (bájalo a 1500 si va lento)
 
 # --- Rutas (relativas a la raíz del repo) ---
 paths:

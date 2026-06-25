@@ -47,7 +47,8 @@ def _cliente(cfg) -> OllamaClient:
     o = cfg.ollama
     return OllamaClient(
         host=o["host"], modelo=o["modelo"], temperatura=o.get("temperatura", 0),
-        seed=o.get("seed", 42), num_ctx=o.get("num_ctx", 8192), cache_dir=str(cfg.ruta("cache")),
+        seed=o.get("seed", 42), num_ctx=o.get("num_ctx", 4096), cache_dir=str(cfg.ruta("cache")),
+        timeout=o.get("timeout", 600),
     )
 
 

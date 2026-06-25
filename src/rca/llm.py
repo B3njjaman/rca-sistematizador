@@ -23,10 +23,13 @@ class OllamaClient:
         modelo: str,
         temperatura: float = 0,
         seed: int = 42,
-        num_ctx: int = 8192,
+        num_ctx: int = 4096,
         cache_dir: str | Path = ".cache",
+        timeout: int = 600,
     ):
-        self.client = ollama.Client(host=host)
+        # timeout amplio: en CPU la primera inferencia (carga + generación con
+        # esquema JSON) puede tardar minutos. Sin esto -> "max retries exceeded".
+        self.client = ollama.Client(host=host, timeout=timeout)
         self.modelo = modelo
         self.opciones = {"temperature": temperatura, "seed": seed, "num_ctx": num_ctx}
         self.cache_dir = Path(cache_dir)
