@@ -24,23 +24,23 @@ PDF ─►[0] HTML ─►[1] bloques+Fuente ─►[2] extracción LLM ─►[3] 
 - Python 3.10+
 - [Ollama](https://ollama.com/download) (para las etapas 2 y 3)
 
-## Instalación rápida (Windows / PowerShell)
-
-Un solo comando hace todo: crea `.venv`, instala, verifica Ollama, descarga el modelo y corre el pipeline.
+## Clone + Run (un solo comando)
 
 ```powershell
-# desde la raíz del repo (tras clonar)
+git clone https://github.com/B3njjaman/rca-sistematizador.git
+cd rca-sistematizador
 powershell -ExecutionPolicy Bypass -File .\scripts\setup.ps1
 ```
+
+`setup.ps1` hace **todo**: crea `.venv`, instala, **descarga el modelo desde el Release de GitHub** (no usa el registro de Ollama ni HuggingFace, así funciona en redes que los bloquean), lo importa a Ollama y corre el pipeline. Al final abre `output\` con la matriz.
+
+Requisitos en el PC: **Python 3.10+** y **Ollama** (`winget install Python.Python.3.11 Ollama.Ollama`). Si Ollama no está, el script igual hace la conversión PDF→HTML y avisa.
 
 Opciones:
 
 ```powershell
-.\scripts\setup.ps1 -NoLlm                      # solo PDF->HTML + segmentación (sin IA)
-.\scripts\setup.ps1 -Modelo "qwen2.5:7b-instruct"   # PC con 16GB+
+.\scripts\setup.ps1 -NoLlm     # solo PDF->HTML + segmentación, sin IA
 ```
-
-Si Ollama aún no está instalado, el script avisa y corre solo la conversión.
 
 ### Manual
 

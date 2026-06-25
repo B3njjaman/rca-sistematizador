@@ -17,5 +17,9 @@ output/*
 !output/.gitkeep
 .cache/
 
+# Modelos descargados (van por GitHub Release, no por git)
+*.gguf
+model.gguf
+
 # Entorno local
 .env

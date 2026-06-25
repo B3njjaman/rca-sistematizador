@@ -13,7 +13,7 @@ documento:
 # --- Motor LLM local (Ollama) ---
 ollama:
   host: "http://localhost:11434"
-  modelo: "qwen2.5:3b-instruct"   # CPU-friendly. Alternativas: qwen2.5:1.5b (PC más justo), qwen2.5:7b-instruct (16GB+)
+  modelo: "rca-qwen"   # se importa solo desde el Release (Qwen2.5-1.5B). Alternativas: qwen2.5:3b-instruct, etc.
   temperatura: 0
   seed: 42
   num_ctx: 4096      # en CPU bájalo a 2048 si te quedas sin RAM
