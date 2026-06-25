@@ -80,6 +80,20 @@ Salidas en `output/`: `matriz_exigencias.xlsx` (principal), `.csv`, `.json` y `.
 
 > La columna *Restricción ambiental* aparecía dos veces en el requerimiento; se consolidó en una.
 
+## Modelo sin internet (red que bloquea Ollama/HuggingFace)
+
+Si tu red corporativa bloquea la descarga de modelos de Ollama/HuggingFace pero **sí permite github.com**, el modelo está publicado como *Release* de este repo. Descárgalo e impórtalo localmente:
+
+```powershell
+# en la carpeta del proyecto
+curl.exe -L -o model.gguf "https://github.com/B3njjaman/rca-sistematizador/releases/download/modelos-v1/Qwen2.5-1.5B-Instruct-Q4_K_M.gguf"
+ollama create rca-qwen -f Modelfile
+$env:RCA_MODELO = "rca-qwen"
+.\.venv\Scripts\python.exe -m rca.cli run-all
+```
+
+`ollama create` es 100% local (no descarga nada). Para fijar el modelo, pon `modelo: "rca-qwen"` en `config/settings.yaml`.
+
 ## Configuración
 
 - `config/settings.yaml` — modelo Ollama, metadata del documento, rutas, tamaño de bloque.

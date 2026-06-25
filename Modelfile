@@ -1,0 +1,4 @@
+# Importa un modelo GGUF local a Ollama (sin pasar por el registro de Ollama).
+# 1) Descarga el .gguf y guárdalo como model.gguf en esta carpeta.
+# 2) ollama create rca-qwen -f Modelfile
+FROM ./model.gguf
