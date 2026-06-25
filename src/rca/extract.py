@@ -1,7 +1,10 @@
 """Etapa 2: extracción de exigencias por bloque, con el LLM local."""
 from __future__ import annotations
 
+import time
 from pathlib import Path
+
+from rich.console import Console
 
 from .llm import OllamaClient
 from .parse import Chunk
@@ -16,6 +19,7 @@ from .schema import (
 from .verify import verificar
 
 _PROMPT_DIR = Path(__file__).resolve().parent.parent.parent / "prompts"
+_console = Console()
 
 
 def _system_prompt() -> str:
@@ -38,8 +42,18 @@ def extraer(chunks: list[Chunk], client: OllamaClient) -> list[Exigencia]:
     schema = ResultadoExtraccion.model_json_schema()
     salida: list[Exigencia] = []
 
-    for ch in chunks:
+    total = len(chunks)
+    t_ini = time.time()
+    for i, ch in enumerate(chunks, start=1):
+        t0 = time.time()
         data = client.chat_json(system, ch.texto, schema)
+        dt = time.time() - t0
+        prom = (time.time() - t_ini) / i
+        rest = prom * (total - i) / 60
+        _console.print(
+            f"   bloque {i}/{total}  ({dt:.0f}s)  exigencias acumuladas: {len(salida)}  "
+            f"[dim]~{rest:.0f} min restantes[/dim]"
+        )
         for item in data.get("exigencias", []):
             # saneo tolerante de los campos de vocabulario cerrado
             item["tipo"] = _sanea(item.get("tipo"), TIPOS, "Otro")
