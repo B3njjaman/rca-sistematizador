@@ -26,12 +26,21 @@ PDF ─►[0] HTML ─►[1] bloques+Fuente ─►[2] extracción LLM ─►[3] 
 
 ## Instalación rápida (Windows / PowerShell)
 
+Un solo comando hace todo: crea `.venv`, instala, verifica Ollama, descarga el modelo y corre el pipeline.
+
 ```powershell
-# desde la raíz del repo
-.\scripts\setup.ps1
+# desde la raíz del repo (tras clonar)
+powershell -ExecutionPolicy Bypass -File .\scripts\setup.ps1
 ```
 
-Esto crea `.venv`, instala el paquete y prueba la conversión PDF→HTML **sin** LLM.
+Opciones:
+
+```powershell
+.\scripts\setup.ps1 -NoLlm                      # solo PDF->HTML + segmentación (sin IA)
+.\scripts\setup.ps1 -Modelo "qwen2.5:7b-instruct"   # PC con 16GB+
+```
+
+Si Ollama aún no está instalado, el script avisa y corre solo la conversión.
 
 ### Manual
 
